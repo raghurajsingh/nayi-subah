@@ -1,0 +1,32 @@
+Applicants
+
+ApplicantID
+ApplicantName
+FacilitatorID
+Forms - Comma separated list of FormID
+
+
+Users
+FacilitatorID
+Name - FirstName . LastName
+Email
+Forms - Comma separated list of FormID
+
+Forms
+FormID
+FormName
+
+General Details
+
+ID
+Name
+Email
+Address
+Phone
+DOB
+
+Aadhar 
+
+
+mysql_real_escape_string()
+
