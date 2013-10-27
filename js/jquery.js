@@ -12,12 +12,36 @@ $(document).ready(function(){
                         success:function(html){
 			            var arr2= new Array();
 			            arr2 = JSON.parse(html);
-						
+			            //alert(arr2);
+			            if (arr2.length === 0){
+			            	//alert('hi');
+						$("#hiddenid").val('');	
+						$("#firstname").val('');
+						$("#middlename").val('');
+						$("#lastname").val('');
+						$('#gender').val('');
+						$("#age").val('');
+						$("#datepicker-dob").val('');
+						$("#house_no").val('');
+						$("#street").val('');
+						$("#landmark").val('');
+						$("#area").val('');
+						$("#city").val('');
+						$("#post_office").val('');
+						$("#district").val('');
+						$("#sub_district").val('');
+						$("#state").val('');
+						$("#mobile").val('');
+						$("#email").val('');
+						$("#pincode").val('');
+							
+						}else{
 						var id=arr2[0]['id'];
+						$("#hiddenid").val(arr2[0]['id']);
 						$("#firstname").val(arr2[0]['firstname']);
 						$("#middlename").val(arr2[0]['middlename']);
 						$("#lastname").val(arr2[0]['lastname']);
-						$("#gender").val(arr2[0]['gender']);
+						$('#gender').val(arr2[0]['gender']);
 						$("#age").val(arr2[0]['age']);
 						$("#datepicker-dob").val(arr2[0]['dob']);
 						$("#house_no").val(arr2[0]['house_no']);
@@ -33,6 +57,7 @@ $(document).ready(function(){
 						$("#email").val(arr2[0]['email']);
 						$("#pincode").val(arr2[0]['pincode']);
 						
+						}
 						
 			            
 			

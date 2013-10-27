@@ -9,9 +9,9 @@ $conditionParams = Array();
 $conditionParams['id']=$applicant_id;
 
 $result = $db->select('basic_details','*',$conditionParams);
-if($result){
+
 echo json_encode($result);
-}
+
    
 
 ?>
