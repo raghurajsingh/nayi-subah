@@ -9,6 +9,12 @@ $(document).ready(function(){
                         type: "POST",
                         url: "select-applicant.php",
                         data: 'applicant_id='+applicant_id,
+                         beforeSend: function() {
+			                      $('.edit-loader').show();
+            },
+		    complete: function(){
+			                      $('.edit-loader').hide();
+		    },	
                         success:function(html){
 			            var arr2= new Array();
 			            arr2 = JSON.parse(html);
@@ -41,7 +47,16 @@ $(document).ready(function(){
 						$("#firstname").val(arr2[0]['firstname']);
 						$("#middlename").val(arr2[0]['middlename']);
 						$("#lastname").val(arr2[0]['lastname']);
-						$('.gender').val(arr2[0]['gender']);
+						var gender=arr2[0]['gender'];
+						//alert(gender);
+						if(gender='male'){
+							$("#gender1").append("checked:checked");
+						
+						}else if(gender='female'){
+							$("#gender2").prop("checked");
+						}else if(gender='transgender'){
+							$("#gender3").prop("checked");
+						}
 						$("#age").val(arr2[0]['age']);
 						$("#datepicker-dob").val(arr2[0]['dob']);
 						$("#house_no").val(arr2[0]['house_no']);

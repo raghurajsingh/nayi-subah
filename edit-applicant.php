@@ -195,11 +195,11 @@ $(document).ready(function() {
                 <div class="control-group">
                     <label class="control-label">Gender <span class="accent">*</span></label>
                     <div class="controls">
-                        <input type="radio"  name="gender" value="male" size="35" class="gender input-xlarge req_fields" /><span class="gender_label">Male</span>
+                        <input type="radio" id="gender1" name="gender" value="male" size="35" class="gender input-xlarge req_fields" /><span class="gender_label">Male</span>
                       
-                        <input type="radio" name="gender" value="female" size="35" class="gender input-xlarge req_fields"  /><span class="gender_label">Female</span>
+                        <input type="radio" name="gender" id="gender2" value="female" size="35" class="gender input-xlarge req_fields"  /><span class="gender_label">Female</span>
                         
-                         <input type="radio"  name="gender" value="transgender" size="35" class="gender qinput-xlarge req_fields"  /><span class="gender_label">Transgender</span>
+                         <input type="radio"  name="gender" id="gender3" value="transgender" size="35" class="gender qinput-xlarge req_fields"  /><span class="gender_label">Transgender</span>
                           
                     </div>
                 </div>
