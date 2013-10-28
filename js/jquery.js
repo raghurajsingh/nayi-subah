@@ -41,7 +41,7 @@ $(document).ready(function(){
 						$("#firstname").val(arr2[0]['firstname']);
 						$("#middlename").val(arr2[0]['middlename']);
 						$("#lastname").val(arr2[0]['lastname']);
-						$('#gender').val(arr2[0]['gender']);
+						$('.gender').val(arr2[0]['gender']);
 						$("#age").val(arr2[0]['age']);
 						$("#datepicker-dob").val(arr2[0]['dob']);
 						$("#house_no").val(arr2[0]['house_no']);

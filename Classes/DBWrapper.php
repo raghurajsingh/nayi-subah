@@ -196,7 +196,7 @@ class DBWrapper {
 			$query.= ' = ';
 			$query.= ($i==count($conditionKeys)-1)? ':D'.$conditionKeys[$i] : ':D'.$conditionKeys[$i].' and ';
 		}
-		
+		//echo $query;die();
 		$stmt = $this->conn->prepare($query);
         
         //Binding the Update parameters to their values

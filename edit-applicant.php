@@ -11,7 +11,10 @@ $conditionParams['FacilitatorID']=$facilitator_id;
 $result = $db->select('applicants','*',$conditionParams);
 if(isset($_POST['submit3'])){
 if($_POST['hiddenid']){
-$id=	$_POST['hiddenid'];		
+	
+$Conparms=Array();
+$Conparms['id']=	$_POST['hiddenid'];
+		
 $params=Array();
 $params['firstname']=$_POST['firstname'];
 $params['middlename']=$_POST['middlename'];
@@ -32,7 +35,7 @@ $params['mobile']=$_POST['mobile'];
 $params['email']=$_POST['email'];
 $params['pincode']=$_POST['pincode'];
 
-$result1= $db->update('basic_details',$id,$params);
+$result1= $db->update('basic_details',$params,$Conparms);
 	if($result1) 
 {
  $msg= "Code for successful Insertion";
@@ -192,11 +195,11 @@ $(document).ready(function() {
                 <div class="control-group">
                     <label class="control-label">Gender <span class="accent">*</span></label>
                     <div class="controls">
-                        <input type="radio" id="gender"  name="gender" value="male" size="35" class="input-xlarge req_fields" /><span class="gender_label">Male</span>
+                        <input type="radio"  name="gender" value="male" size="35" class="gender input-xlarge req_fields" /><span class="gender_label">Male</span>
                       
-                        <input type="radio" id="gender" name="gender" value="female" size="35" class="input-xlarge req_fields"  /><span class="gender_label">Female</span>
+                        <input type="radio" name="gender" value="female" size="35" class="gender input-xlarge req_fields"  /><span class="gender_label">Female</span>
                         
-                         <input type="radio" id="gender" name="gender" value="transgender" size="35" class="input-xlarge req_fields"  /><span class="gender_label">Transgender</span>
+                         <input type="radio"  name="gender" value="transgender" size="35" class="gender qinput-xlarge req_fields"  /><span class="gender_label">Transgender</span>
                           
                     </div>
                 </div>
