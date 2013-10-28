@@ -438,6 +438,8 @@ transition: background .2s linear;
 
 .controls input[type="radio"] { float:left; margin-top:8px;}
 
+.controls input[type="checkbox"] { float:left; margin-top:8px;}
+
 #gender11, #gender22 { line-height:30px;}
 
 #gender22 { margin-left:10px;}

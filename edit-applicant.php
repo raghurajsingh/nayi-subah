@@ -1,17 +1,84 @@
 <?php 
 require_once 'Classes/DBWrapper.php';
-
+$msg='';
 $db = new DBWrapper();
 
 $facilitator_id='1';
 $conditionParams = Array();
 $conditionParams['FacilitatorID']=$facilitator_id;
 
+
 $result = $db->select('applicants','*',$conditionParams);
+if(isset($_POST['submit3'])){
+if($_POST['hiddenid']){
+$id=	$_POST['hiddenid'];		
+$params=Array();
+$params['firstname']=$_POST['firstname'];
+$params['middlename']=$_POST['middlename'];
+$params['lastname']=$_POST['lastname'];
+$params['gender']=$_POST['gender'];
+$params['age']=$_POST['age'];
+$params['dob']=$_POST['dob'];
+$params['house_no']=$_POST['house_no'];
+$params['street']=$_POST['street'];
+$params['landmark']=$_POST['landmark'];
+$params['area']=$_POST['area'];
+$params['city']=$_POST['city'];
+$params['post_office']=$_POST['post_office'];
+$params['district']=$_POST['district'];
+$params['sub_district']=$_POST['sub_district'];
+$params['state']=$_POST['state'];
+$params['mobile']=$_POST['mobile'];
+$params['email']=$_POST['email'];
+$params['pincode']=$_POST['pincode'];
 
-//$params=();
-//$result 1= $db->insert('basic_details','*',$params);
+$result1= $db->update('basic_details',$id,$params);
+	if($result1) 
+{
+ $msg= "Code for successful Insertion";
+}
+else
+{
+ $msg= "Code for unsuccessful insertion";
+}		
+		
+}else{
+	
+$params=Array();
+$params['id']=	$_POST['applicant'];	
+$params['firstname']=$_POST['firstname'];
+$params['middlename']=$_POST['middlename'];
+$params['lastname']=$_POST['lastname'];
+$params['gender']=$_POST['gender'];
+$params['age']=$_POST['age'];
+$params['dob']=$_POST['dob'];
+$params['house_no']=$_POST['house_no'];
+$params['street']=$_POST['street'];
+$params['landmark']=$_POST['landmark'];
+$params['area']=$_POST['area'];
+$params['city']=$_POST['city'];
+$params['post_office']=$_POST['post_office'];
+$params['district']=$_POST['district'];
+$params['sub_district']=$_POST['sub_district'];
+$params['state']=$_POST['state'];
+$params['mobile']=$_POST['mobile'];
+$params['email']=$_POST['email'];
+$params['pincode']=$_POST['pincode'];
 
+$result1= $db->insert('basic_details',$params);
+
+if($result1) 
+{
+ $msg= "Code for successful Insertion";
+}
+else
+{
+ $msg= "Code for unsuccessful insertion";
+}	
+
+}
+
+}
 ?>
 <!DOCTYPE html>
 <html  lang="en">
@@ -59,7 +126,7 @@ $(document).ready(function() {
 			<div class="span3">
 				<h4>Basic Details</h4>
 			</div>
-
+               <?php if($msg!=''){echo '<span class="accent" >'.$msg.'</span>'; }?>
 			
 		</div>
 	</div>       
@@ -125,11 +192,11 @@ $(document).ready(function() {
                 <div class="control-group">
                     <label class="control-label">Gender <span class="accent">*</span></label>
                     <div class="controls">
-                        <input type="radio" id="gender"  name="gender" value="male" size="35" class="input-xlarge req_fields" id="gender11" /><span class="gender_label">Male</span>
+                        <input type="radio" id="gender"  name="gender" value="male" size="35" class="input-xlarge req_fields" /><span class="gender_label">Male</span>
                       
-                        <input type="radio" id="gender" name="gender" value="female" size="35" class="input-xlarge req_fields" id="gender22" /><span class="gender_label">Female</span>
+                        <input type="radio" id="gender" name="gender" value="female" size="35" class="input-xlarge req_fields"  /><span class="gender_label">Female</span>
                         
-                         <input type="radio" id="gender" name="gender" value="transgender" size="35" class="input-xlarge req_fields" id="gender22" /><span class="gender_label">Transgender</span>
+                         <input type="radio" id="gender" name="gender" value="transgender" size="35" class="input-xlarge req_fields"  /><span class="gender_label">Transgender</span>
                           
                     </div>
                 </div>

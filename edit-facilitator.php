@@ -1,6 +1,6 @@
 <?php 
 require_once 'Classes/DBWrapper.php';
-
+$msg='';
 $db = new DBWrapper();
 
 $facilitator_id='1';
@@ -9,8 +9,40 @@ $conditionParams['id']=$facilitator_id;
 
 $result = $db->select('basic_details','*',$conditionParams);
 
-//$params=();
-//$result 1= $db->insert('basic_details','*',$params);
+if(isset($_POST['submit3'])){
+	
+$id=	$_POST['hiddenid'];		
+$params=Array();
+$params['firstname']=$_POST['firstname'];
+$params['middlename']=$_POST['middlename'];
+$params['lastname']=$_POST['lastname'];
+$params['gender']=$_POST['gender'];
+$params['age']=$_POST['age'];
+$params['dob']=$_POST['dob'];
+$params['house_no']=$_POST['house_no'];
+$params['street']=$_POST['street'];
+$params['landmark']=$_POST['landmark'];
+$params['area']=$_POST['area'];
+$params['city']=$_POST['city'];
+$params['post_office']=$_POST['post_office'];
+$params['district']=$_POST['district'];
+$params['sub_district']=$_POST['sub_district'];
+$params['state']=$_POST['state'];
+$params['mobile']=$_POST['mobile'];
+$params['email']=$_POST['email'];
+$params['pincode']=$_POST['pincode'];
+
+$result1= $db->update('basic_details',$id,$params);
+		
+if($result1) 
+{
+ $msg= "Code for successful Insertion";
+}
+else
+{
+ $msg= "Code for unsuccessful insertion";
+}		
+}	
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +91,7 @@ $(document).ready(function() {
 			<div class="span3">
 				<h4>Basic Details</h4>
 			</div>
-
+               <?php if($msg!=''){echo '<span class="accent" >'.$msg.'</span>'; }?>
 			
 		</div>
 	</div>       
@@ -67,7 +99,7 @@ $(document).ready(function() {
 			<div id="profile_tab" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
             
             <form name="emp_form1" action="" method="post" enctype="multipart/form-data" class="form-horizontal" onsubmit="return ajaxsubmit();" id="emp_form1">
-            <input type="hidden" name="hiddenid" id="hiddenid" value="" size="35" class="input-xlarge req_fields" Placeholder="Please Type here" />
+            <input type="hidden" name="hiddenid" id="hiddenid" value="<?php echo $result[0]['id']?>" size="35" class="input-xlarge req_fields" Placeholder="Please Type here" />
             <div class="row-fluid">
             
             
