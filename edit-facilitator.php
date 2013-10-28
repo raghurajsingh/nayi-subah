@@ -92,7 +92,7 @@ $(document).ready(function() {
 				<h4>Basic Details</h4>
 			</div>
                <?php if($msg!=''){echo '<span class="accent" >'.$msg.'</span>'; }?>
-			
+			<a href="home.php" style="float: right"> Back To Home</a>
 		</div>
 	</div>       
 
